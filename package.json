@@ -1,0 +1,35 @@
+{
+  "name": "news-explorer-api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamerjb/news-explorer-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tamerjb/news-explorer-api/issues"
+  },
+  "homepage": "https://github.com/tamerjb/news-explorer-api#readme",
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0",
+    "node": "^19.0.0",
+    "validator": "^13.7.0"
+  }
+}
