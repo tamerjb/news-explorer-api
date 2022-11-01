@@ -11,7 +11,9 @@ const getAllArticles = (req, res, next) => {
 };
 const createArticle = (req, res, next) => {
   const { keyword, title, text, date, source, link, image } = req.body;
+
   const { _id } = req.user._id;
+
   Article.create({
     keyword,
     title,
@@ -27,9 +29,8 @@ const createArticle = (req, res, next) => {
       if (err.name === 'ValidationError') {
         return next(new BadRequestError(err.message));
       }
-      {
-        return next(err);
-      }
+
+      return next(err);
     });
 };
 const deleteArticle = (req, res, next) => {

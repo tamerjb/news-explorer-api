@@ -4,13 +4,13 @@ const {
   createArticle,
   deleteArticle,
 } = require('../controllers/articles');
-// const {
-//   validateObjectId,
-//   validateCardBody,
-// } = require('../middleware/validation');
+const {
+  validateArticle,
+  validateArticleId,
+} = require('../middleware/validation');
 
-router.get('/articles', getAllArticles);
-router.post('/articles', createArticle);
-router.delete('/articles/articleId', deleteArticle);
+router.get('/', getAllArticles);
+router.post('/', validateArticle, createArticle);
+router.delete('/articleId', validateArticleId, deleteArticle);
 
 module.exports = router;

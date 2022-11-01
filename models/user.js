@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
-const { stringify } = require('querystring');
 
-const User = new mongoose.Schema({
-  name: { type: String, required: true, minlength: 2, maxlength: 30 },
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String, required: true, minlength: 2, maxlength: 30
+  },
 
   email: {
     type: String,
@@ -21,7 +22,7 @@ const User = new mongoose.Schema({
     required: true,
   },
 });
-User.statics.findUserByCredentials = function findUserByCredentials(
+UserSchema.statics.findUserByCredentials = function findUserByCredentials(
   email,
   password
 ) {
@@ -40,4 +41,4 @@ User.statics.findUserByCredentials = function findUserByCredentials(
     });
 };
 
-export default mongoose.model('user', User);
+module.exports = mongoose.model('user', UserSchema);

@@ -1,17 +1,17 @@
 const router = require('express').Router();
-// const {
-//   validateUserBody,
-//   validateAuthentication,
-// } = require('../middleware/validation');
+const {
+  validateRegistration,
+  validateAuth,
+} = require('../middleware/validation');
+
 const { registerUser, login } = require('../controllers/users');
 const NotFoundError = require('../utils/errors/NotFoundError');
-
-// const auth = require('../middleware/auth');
+const auth = require('../middleware/auth');
 const usersRoute = require('./users');
 const articleRouter = require('./articles');
 
-router.post('/signup', registerUser);
-router.post('/signin', login);
+router.post('/signup', validateRegistration, registerUser);
+router.post('/signin', validateAuth, login);
 
 // router.use(auth);
 

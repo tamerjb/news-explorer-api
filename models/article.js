@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const Article = new mongoose.Schema({
+const articleSchema = new mongoose.Schema({
   keyword: { type: String, required: true },
   title: { type: String, required: true },
   text: { type: String, required: true },
@@ -31,4 +31,4 @@ const Article = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('article', Article);
+module.exports = mongoose.model('article', articleSchema);
