@@ -2,7 +2,6 @@ const Article = require('../models/article');
 const NotFoundError = require('../utils/errors/NotFoundError');
 const ForbiddenError = require('../utils/errors/ForbiddenError');
 const BadRequestError = require('../utils/errors/BadRequestError');
-
 const getAllArticles = (req, res, next) => {
   const owner = req.user._id;
   Article.find({ owner })
