@@ -1,5 +1,4 @@
 const express = require('express');
-// listen to port 3000
 const mongoose = require('mongoose');
 
 const { PORT = 3000 } = process.env;
