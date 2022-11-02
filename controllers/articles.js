@@ -8,6 +8,7 @@ const getAllArticles = (req, res, next) => {
     .then((articles) => res.status(200).send(articles))
     .catch(next);
 };
+//first review
 const createArticle = (req, res, next) => {
   const { keyword, title, text, date, source, link, image } = req.body;
 
