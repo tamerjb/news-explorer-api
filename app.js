@@ -1,15 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const { PORT = 3000 } = process.env;
 const helmet = require('helmet');
 const cors = require('cors');
 require('dotenv').config({ path: './.env' });
 const { errors } = require('celebrate');
-
+const {
+  MONGO_DB = 'mongodb://localhost:27017/newsdb',
+  PORT = 3000,
+} = require('./utils/config');
 const app = express();
-const { MONGODB_URI = 'mongodb://localhost:27017/newsdb' } = process.env;
-mongoose.connect(MONGODB_URI);
+
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { limiter } = require('./middleware/limiter');
 

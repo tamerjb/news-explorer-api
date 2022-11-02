@@ -13,7 +13,7 @@ const articleRouter = require('./articles');
 router.post('/signup', validateRegistration, registerUser);
 router.post('/signin', validateAuth, login);
 
-// router.use(auth);
+router.use(auth);
 
 router.use('/users', usersRoute);
 router.use('/articles', articleRouter);
