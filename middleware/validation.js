@@ -10,12 +10,11 @@ const validateUrl = (v, helpers) => {
 };
 const validateRegistration = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().required().min(2).max(30)
-      .messages({
-        'string.min': 'Name must be at least 2 characters ',
-        'string.max': 'Name must be at least 30 characters ',
-        'any.required': 'Name is required',
-      }),
+    name: Joi.string().required().min(2).max(30).messages({
+      'string.min': 'Name must be at least 2 characters ',
+      'string.max': 'Name must be at least 30 characters ',
+      'any.required': 'Name is required',
+    }),
     email: Joi.string().required().email().messages({
       'string.email': 'Email must be a valid email address',
       'any.required': 'Email is required',
@@ -89,3 +88,4 @@ module.exports = {
   validateArticle,
   validateArticleId,
 };
+//first review

@@ -5,7 +5,6 @@ const BadRequestError = require('../utils/errors/BadRequestError');
 
 const getAllArticles = (req, res, next) => {
   const owner = req.user._id;
-  console.log('req.params.articleId', req);
 
   Article.find({ owner })
     .then((articles) => res.status(200).send(articles))
@@ -15,7 +14,6 @@ const getAllArticles = (req, res, next) => {
 const createArticle = (req, res, next) => {
   const { keyword, title, text, date, source, link, image } = req.body;
   const id = req.user._id;
-  // console.log('req.params.articleId', req.params.id);
   Article.create({
     keyword,
     title,
@@ -36,7 +34,7 @@ const createArticle = (req, res, next) => {
     });
 };
 const deleteArticle = (req, res, next) => {
-  const { _id } = req.user._id;
+  const { _id } = req.user;
 
   Article.findById(req.params.articleId)
     .orFail(new NotFoundError('article not found'))
@@ -47,7 +45,7 @@ const deleteArticle = (req, res, next) => {
         );
       }
       return Article.findByIdAndRemove(req.params.articleId).then(
-        (deletedArticle) => res.sendStatus(200).send(deletedArticle)
+        (deletedArticle) => res.status(200).send(deletedArticle)
       );
     })
     .catch(next);
@@ -57,3 +55,4 @@ module.exports = {
   createArticle,
   deleteArticle,
 };
+//first review

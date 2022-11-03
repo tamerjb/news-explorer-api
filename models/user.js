@@ -4,7 +4,10 @@ const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
   name: {
-    type: String, required: true, minlength: 2, maxlength: 30
+    type: String,
+    required: true,
+    minlength: 2,
+    maxlength: 30,
   },
 
   email: {
@@ -42,3 +45,4 @@ UserSchema.statics.findUserByCredentials = function findUserByCredentials(
 };
 
 module.exports = mongoose.model('user', UserSchema);
+//first review
