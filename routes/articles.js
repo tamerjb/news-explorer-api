@@ -3,7 +3,7 @@ const {
   getAllArticles,
   createArticle,
   deleteArticle,
-} = require('../controllers/articles');
+} = require('../controllers/article');
 const {
   validateArticle,
   validateArticleId,
