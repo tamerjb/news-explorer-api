@@ -33,7 +33,7 @@ app.use(router);
 
 app.use(errorLogger);
 app.use(errors());
-app.use(errorHandler);
+// app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`App listening at port ${PORT}`);

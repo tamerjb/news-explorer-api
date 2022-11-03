@@ -5,6 +5,8 @@ const BadRequestError = require('../utils/errors/BadRequestError');
 
 const getAllArticles = (req, res, next) => {
   const owner = req.user._id;
+  console.log('req.params.articleId', req);
+
   Article.find({ owner })
     .then((articles) => res.status(200).send(articles))
     .catch(next);
@@ -12,8 +14,8 @@ const getAllArticles = (req, res, next) => {
 //first review
 const createArticle = (req, res, next) => {
   const { keyword, title, text, date, source, link, image } = req.body;
-  console.log(req.user._id);
   const id = req.user._id;
+  // console.log('req.params.articleId', req.params.id);
   Article.create({
     keyword,
     title,
@@ -24,7 +26,7 @@ const createArticle = (req, res, next) => {
     image,
     owner: id,
   })
-    .then((article) => res.sendStatus(201).send(article))
+    .then((article) => res.status(201).send(article))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new BadRequestError(err.message));
@@ -34,13 +36,12 @@ const createArticle = (req, res, next) => {
     });
 };
 const deleteArticle = (req, res, next) => {
-  // const { _id } = req.user._id;
-  console.log('req.params.articleId', req.params.articleId);
+  const { _id } = req.user._id;
 
   Article.findById(req.params.articleId)
     .orFail(new NotFoundError('article not found'))
     .then((article) => {
-      if (article.owner.toString() !== req.user._id) {
+      if (article.owner.toString() !== _id) {
         return next(
           new ForbiddenError('Your Not Authorized to delete this article.')
         );
@@ -51,7 +52,6 @@ const deleteArticle = (req, res, next) => {
     })
     .catch(next);
 };
-
 module.exports = {
   getAllArticles,
   createArticle,
