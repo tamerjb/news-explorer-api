@@ -4,8 +4,7 @@ const UnauthorizedError = require('../utils/errors/UnauthorizedError');
 const { JWT_SECRET } = require('../utils/config');
 const auth = (req, res, next) => {
   const { authorization } = req.headers;
-  // console.log('authorization', authorization);
-  // console.log('JWT_SECRET', JWT_SECRET);
+  //used to commit this if to get the token , and then send it by postman header to get authroization
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
     return next(new UnauthorizedError('authorization Required '));
