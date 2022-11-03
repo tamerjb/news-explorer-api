@@ -24,7 +24,7 @@ const createArticle = (req, res, next) => {
     image,
     owner: _id,
   })
-    .then((article) => res.send(201).send(article))
+    .then((article) => res.sendStatus(201).send(article))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new BadRequestError(err.message));
@@ -45,7 +45,7 @@ const deleteArticle = (req, res, next) => {
         );
       }
       return Article.findByIdAndRemove(req.params.articleId).then(
-        (deletedArticle) => res.status(200).send(deletedArticle)
+        (deletedArticle) => res.sendStatus(200).send(deletedArticle)
       );
     })
     .catch(next);

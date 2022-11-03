@@ -11,6 +11,8 @@ const User = require('../models/user');
 
 const registerUser = (req, res, next) => {
   const { email, password, name } = req.body;
+  console.log('token', token);
+
   User.findOne({ email })
     .then((user) => {
       if (user) {
@@ -35,7 +37,6 @@ const registerUser = (req, res, next) => {
 };
 const login = (req, res, next) => {
   const { email, password } = req.body;
-
   return User.findUserByCredentials(email, password)
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
