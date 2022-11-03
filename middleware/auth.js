@@ -2,9 +2,11 @@ const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../utils/errors/UnauthorizedError');
 
 const { JWT_SECRET } = require('../utils/config');
+
 const auth = (req, res, next) => {
   const { authorization } = req.headers;
-  //used to commit this if to get the token , and then send it by postman header to get authroization
+  // used to commit this if to get the token ,
+  //and then send it by postman header to get authroization
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
     return next(new UnauthorizedError('authorization Required '));
@@ -23,4 +25,4 @@ const auth = (req, res, next) => {
 };
 
 module.exports = auth;
-//first review
+// first review

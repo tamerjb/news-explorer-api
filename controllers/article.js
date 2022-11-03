@@ -10,9 +10,11 @@ const getAllArticles = (req, res, next) => {
     .then((articles) => res.status(200).send(articles))
     .catch(next);
 };
-//first review
+// first review
 const createArticle = (req, res, next) => {
-  const { keyword, title, text, date, source, link, image } = req.body;
+  const {
+    keyword, title, text, date, source, link, image
+  } = req.body;
   const id = req.user._id;
   Article.create({
     keyword,
@@ -55,4 +57,4 @@ module.exports = {
   createArticle,
   deleteArticle,
 };
-//first review
+// first review

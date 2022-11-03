@@ -45,4 +45,4 @@ UserSchema.statics.findUserByCredentials = function findUserByCredentials(
 };
 
 module.exports = mongoose.model('user', UserSchema);
-//first review
+// first review
