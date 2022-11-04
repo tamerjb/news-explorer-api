@@ -9,6 +9,7 @@ const {
   MONGO_DB = 'mongodb://localhost:27017/newsdb',
   PORT = 3000,
 } = require('./utils/config');
+
 const app = express();
 
 const { requestLogger, errorLogger } = require('./middleware/logger');
@@ -16,6 +17,7 @@ const { limiter } = require('./middleware/limiter');
 
 const router = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
+
 mongoose.connect(MONGO_DB);
 app.use(cors());
 
@@ -38,3 +40,4 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`App listening at port ${PORT}`);
 });
+// first review

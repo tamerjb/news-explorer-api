@@ -3,7 +3,7 @@ const {
   getAllArticles,
   createArticle,
   deleteArticle,
-} = require('../controllers/articles');
+} = require('../controllers/article');
 const {
   validateArticle,
   validateArticleId,
@@ -11,6 +11,7 @@ const {
 
 router.get('/', getAllArticles);
 router.post('/', validateArticle, createArticle);
-router.delete('/articleId', validateArticleId, deleteArticle);
+router.delete('/:articleId', validateArticleId, deleteArticle);
 
 module.exports = router;
+// first review

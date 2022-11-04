@@ -5,4 +5,7 @@ const {
   PORT = 3000,
 } = process.env;
 
-module.exports = { JWT_SECRET, MONGO_DB, NODE_ENV, PORT };
+module.exports = {
+  JWT_SECRET, MONGO_DB, NODE_ENV, PORT
+};
+// first review

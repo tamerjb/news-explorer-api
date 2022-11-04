@@ -27,8 +27,9 @@ const articleSchema = new mongoose.Schema({
     ref: 'user',
     type: mongoose.Schema.Types.ObjectId,
     require: true,
-    select: false,
+    // select: false,
   },
 });
 
 module.exports = mongoose.model('article', articleSchema);
+// first review

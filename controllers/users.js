@@ -1,17 +1,15 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
+const User = require('../models/user');
 
-const { JWT_SECRET } = require('../utils/config');
 const ConflictError = require('../utils/errors/ConflictError');
 const BadRequestError = require('../utils/errors/BadRequestError');
 const NotFoundError = require('../utils/errors/NotFoundError');
 const UnauthorizedError = require('../utils/errors/UnauthorizedError');
-const User = require('../models/user');
+const { JWT_SECRET } = require('../utils/config');
 
 const registerUser = (req, res, next) => {
   const { email, password, name } = req.body;
-  console.log('token', token);
 
   User.findOne({ email })
     .then((user) => {
@@ -47,7 +45,8 @@ const login = (req, res, next) => {
     .catch(() => next(new UnauthorizedError('Invalid email or password')));
 };
 const getCurrentUser = (req, res, next) => {
-  const { _id } = req.user._id;
+  const { _id } = req.user;
+
   User.findById(_id)
     .orFail(new NotFoundError('User not found'))
     .then((user) => res.status(200).send(user))
@@ -58,3 +57,4 @@ module.exports = {
   login,
   getCurrentUser,
 };
+// first review
