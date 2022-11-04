@@ -21,4 +21,4 @@
 
 ## Link to REST API:
 
-[api.aroundnews.students.nomoredomainssbs.ru](api.aroundnews.students.nomoredomainssbs.ru)
+[API LINK](https://api.aroundnews.students.nomoredomainssbs.ru)
