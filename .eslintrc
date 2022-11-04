@@ -1,10 +1,20 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "prettier", "eslint:recommended"],
+
   "rules": {
-    "no-underscore-dangle": ["off", { "allow": ["id"] }],
+    "no-underscore-dangle": [
+      "error",
+      { "allow": ["_id", "_doc", "__dirname"] }
+    ],
     "implicit-arrow-linebreak": "off",
-    "function-paren-newline": "off",
-    "comma-dangle": "off",
-    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
+    "no-useless-escape": "off",
+    "no-unused-vars": "off",
+    "eqeqeq": "off",
+    "import/extensions": [0],
+    "no-undef": "off",
+    "consistent-return": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
   }
 }
