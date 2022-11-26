@@ -17,9 +17,9 @@ router.use(auth);
 
 router.use('/users', usersRoute);
 router.use('/articles', articleRouter);
-router.use('*', (req, res, next) => {
-  next(new NotFoundError('The requested resource was not found'));
-});
+// router.use('*', (req, res, next) => {
+//   next(new NotFoundError('The requested resource was not found'));
+// });
 
 module.exports = router;
 // first review
