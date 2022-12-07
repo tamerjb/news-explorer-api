@@ -9,16 +9,18 @@
 - Celebrate/Joi
 - Jsonwebtoken
 
-## Routes
+### Routes & Features :
 
-- GET /users/me - get user data
-- POST /signup - create user
-- POST /signin - login user
+- `/signup` POST request for creating a user.
+- `/signin` POST request for receiving a Json-Web-Token.
+- `/users/me` GET request for receiving the current user using Json-Web-Token.
+- `/articles` GET request for getting all the current user saved articles.
+- `/articles` POST request for saving a new article to the current user.
+- `/articles/:id` DELETE request for deleting an article by id.
 
-- GET /articles - get saved articles
-- POST /articles - save article
-- DELETE /articles/articleId - delete article
+## Links:
+**[APP](https://newsexplorer-tamir.students.nomoredomainssbs.ru)**
+[API LINK](https://api.newsexplorer-tamir.students.nomoredomainssbs.ru)
 
-## Link to REST API:
 
-[API LINK](https://api.aroundnews.students.nomoredomainssbs.ru)
+
