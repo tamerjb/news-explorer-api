@@ -20,7 +20,7 @@
 
 ## Links:
 - **[APP](https://newsexplorer-tamir.students.nomoredomainssbs.ru)**
-- [API LINK](https://api.newsexplorer-tamir.students.nomoredomainssbs.ru)
+- [API](https://api.newsexplorer-tamir.students.nomoredomainssbs.ru)
 
 
 
