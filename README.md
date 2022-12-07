@@ -19,8 +19,8 @@
 - `/articles/:id` DELETE request for deleting an article by id.
 
 ## Links:
-**[APP](https://newsexplorer-tamir.students.nomoredomainssbs.ru)**
-[API LINK](https://api.newsexplorer-tamir.students.nomoredomainssbs.ru)
+- **[APP](https://newsexplorer-tamir.students.nomoredomainssbs.ru)**
+- [API LINK](https://api.newsexplorer-tamir.students.nomoredomainssbs.ru)
 
 
 
