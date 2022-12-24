@@ -6,8 +6,8 @@ const cors = require('cors');
 require('dotenv').config({ path: './.env' });
 const { errors } = require('celebrate');
 const {
-  MONGO_DB = 'mongodb://localhost:27017/newsdb',
-  PORT = 3000,
+  MONGO_DB ,
+  PORT ,
 } = require('./utils/config');
 
 const app = express();
@@ -19,6 +19,7 @@ const router = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
 
 mongoose.connect(MONGO_DB);
+
 app.use(cors());
 
 app.options('*', cors());
