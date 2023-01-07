@@ -3,9 +3,8 @@ const NotFoundError = require('../utils/errors/NotFoundError');
 const ForbiddenError = require('../utils/errors/ForbiddenError');
 const BadRequestError = require('../utils/errors/BadRequestError');
 
-const getAllArticles = (req, res, next) => {
-  const owner = req.user._id;
-
+const getUserArticles = (req, res, next) => {
+  const owner = req.user._id.valueOf();
   Article.find({ owner })
     .then((articles) => res.status(200).send(articles))
     .catch(next);
@@ -15,7 +14,7 @@ const createArticle = (req, res, next) => {
   const {
     keyword, title, text, date, source, link, image
   } = req.body;
-  const id = req.user._id;
+  const id = req.user._id.valueOf();
   Article.create({
     keyword,
     title,
@@ -36,12 +35,13 @@ const createArticle = (req, res, next) => {
     });
 };
 const deleteArticle = (req, res, next) => {
-  const { _id } = req.user;
+  const  id  = req.user._id.valueOf();
 
   Article.findById(req.params.articleId)
     .orFail(new NotFoundError('article not found'))
     .then((article) => {
-      if (article.owner.toString() !== _id) {
+
+      if (article.owner.toString() !== id) {
         return next(
           new ForbiddenError('Your Not Authorized to delete this article.')
         );
@@ -53,7 +53,7 @@ const deleteArticle = (req, res, next) => {
     .catch(next);
 };
 module.exports = {
-  getAllArticles,
+  getUserArticles,
   createArticle,
   deleteArticle,
 };

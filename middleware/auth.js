@@ -8,7 +8,7 @@ const auth = (req, res, next) => {
   // used to commit this if to get the token ,
   // and then send it by postman header to get authroization
 
-  if (!authorization || !authorization.startsWith('Bearer ')) {
+  if (!authorization || !authorization.startsWith('Bearer')) {
     return next(new UnauthorizedError('authorization Required '));
   }
 

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  getAllArticles,
+  getUserArticles,
   createArticle,
   deleteArticle,
 } = require('../controllers/article');
@@ -9,7 +9,7 @@ const {
   validateArticleId,
 } = require('../middleware/validation');
 
-router.get('/', getAllArticles);
+router.get('/', getUserArticles);
 router.post('/', validateArticle, createArticle);
 router.delete('/:articleId', validateArticleId, deleteArticle);
 

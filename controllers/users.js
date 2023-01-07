@@ -33,11 +33,11 @@ const registerUser = (req, res, next) => {
       return next(err);
     });
 };
-const login = (req, res, next) => {
+const signinUser = (req, res, next) => {
   const { email, password } = req.body;
   return User.findUserByCredentials(email, password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, JWT_SECRET, {
+      const token = jwt.sign({ _id: user._id.valueOf() }, JWT_SECRET, {
         expiresIn: '7d',
       });
       res.send({ token });
@@ -54,7 +54,7 @@ const getCurrentUser = (req, res, next) => {
 };
 module.exports = {
   registerUser,
-  login,
+  signinUser,
   getCurrentUser,
 };
 // first review
