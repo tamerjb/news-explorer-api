@@ -44,5 +44,5 @@ UserSchema.statics.findUserByCredentials = function findUserByCredentials(
     });
 };
 
-module.exports = mongoose.model('user', UserSchema);
+module.exports = mongoose.model('newsusers', UserSchema);
 // first review

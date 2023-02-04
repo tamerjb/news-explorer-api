@@ -4,7 +4,7 @@ const {
   validateAuth,
 } = require('../middleware/validation');
 
-const { registerUser, signinUser } = require('../controllers/users');
+const { registerUser, signinUser } = require('../controllers/newsusers');
 const NotFoundError = require('../utils/errors/NotFoundError');
 const auth = require('../middleware/auth');
 const usersRoute = require('./users');
